@@ -5,7 +5,6 @@ var db = require('../db');
 module.exports = db.define('account', {
   accountId: {
     type: Sequelize.INTEGER,
-    allowNull: false,
     autoIncrement: true,
     primaryKey: true
   },
