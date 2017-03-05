@@ -5,7 +5,6 @@ var db = require('../db');
 module.exports = db.define('user', {
   userId: {
     type: Sequelize.INTEGER,
-    allowNull: false,
     autoIncrement: true,
     primaryKey: true
   },
@@ -34,6 +33,4 @@ module.exports = db.define('user', {
         }
     }
   }
-
-
 })

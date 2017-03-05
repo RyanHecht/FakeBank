@@ -2,6 +2,7 @@ var express = require('express');
 var accountRoutes = require('./routes/accounts');
 var userRoutes = require('./routes/users');
 var transactionRoutes = require('./routes/transactions');
+var db = require('./db/db');
 var app = express();
 
 var port = 8080;
@@ -16,5 +17,6 @@ app.use("/transactions", transactionRoutes);
 
 
 app.listen(port, function() {
-  console.log("Server running on port " + port)
+  console.log("Server running on port " + port);
+  db.sync();
 });
