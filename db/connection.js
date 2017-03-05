@@ -6,3 +6,5 @@ var transactionModel = require('./dbModels/transaction');
 
 userModel.hasMany(accountModel, {as: 'Accounts'});
 accountModel.hasMany(transactionModel, {as: 'Transactions'});
+
+module.exports = db;

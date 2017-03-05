@@ -2,7 +2,7 @@ var express = require('express');
 var accountRoutes = require('./routes/accounts');
 var userRoutes = require('./routes/users');
 var transactionRoutes = require('./routes/transactions');
-var db = require('./db/db');
+var db = require('./db/connection');
 var app = express();
 
 var port = 8080;
