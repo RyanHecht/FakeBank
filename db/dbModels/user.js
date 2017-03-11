@@ -19,6 +19,11 @@ module.exports = db.define('user', {
     allowNull: false
   },
 
+  fullName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+
   email: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -31,6 +36,12 @@ module.exports = db.define('user', {
         isEmail: {
             msg: "Email must be of valid format."
         }
+    }
+  }, {
+    hooks: {
+      beforeCreate: function(user){
+        user.fullName = user.firstName + ' ' + user.lastName;
+      }
     }
   }
 })

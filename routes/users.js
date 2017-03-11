@@ -1,13 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
+let User = db.model('user');
 //Will get all users
 router.get('/', function(req, res) {
-  res.send("Users!!");
+	User.findAll()
+	.then(function(users){
+		res.send(users);
+	})
 });
 
 router.get('/:id', function(req, res) {
-  res.send("this will get a user by id");
+	User.findById(req.params.id)
+	.then(function(user){
+		res.send(user);
+	})
 });
 
 router.post('/:firstName/:lastName/:email', function(req, res) {

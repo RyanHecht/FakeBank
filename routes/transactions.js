@@ -1,13 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
+let Transaction = db.model('transaction');
 // will get all transactions
 router.get('/', function(req, res) {
-  res.send("Transactions!!");
+	Transaction.findAll()
+	.then(function(transactions){
+		res.send(transactions);
+	})
 });
 
+// get a transaction by id
 router.get('/:id', function(req, res) {
-  res.send("will get transaction by id");
+	Transaction.findById(req.params.id)
+	.then(function(transaction){
+		res.send(transaction);
+	})
 });
 
 router.post('/:sender/:receiver/:amount/:desc', function(req, res) {
